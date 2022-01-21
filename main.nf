@@ -6,11 +6,11 @@ process someTask {
   output: 
      stdout 
   script:
-  /
-    echo "Secrets phrase: \$FOO \$BAR"
-  /
+  '''
+    echo "Secrets phrase: $FOO $BAR"
+  '''
 }
 
 workflow {
-  someTask().out.view()
+  someTask().view()
 }
