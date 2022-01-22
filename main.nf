@@ -1,5 +1,7 @@
 nextflow.enable.dsl=2
 
+params.email = 'paolo.ditommaso@gmail.com'
+
 process someTask {
   secret 'FOO'
   secret 'BAR'
@@ -28,5 +30,5 @@ workflow.onComplete {
         """
         .stripIndent()
 
-    sendMail(to: 'paolo.ditommaso@gmail.com', subject: 'My pipeline execution', body: msg)
+    sendMail(to: params.email, from: params.email, subject: 'My pipeline execution', body: msg)
 }
